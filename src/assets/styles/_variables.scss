@@ -1,1 +1,27 @@
 //--variables
+
+
+$primary :#005586;
+$secondary: #999999;
+$success: #71b971;
+$danger: #da411f;
+$warning: #f5ae65;
+$info: #76bfda;
+$light: #ffffff;
+$dark: #424242;
+//addional colors
+$primary-dark: #00538b;
+$primary-light: #6698b9;
+
+$theme-colors: (
+    "primary": $primary,
+    "primary-light": $primary-light,
+    "primary-dark": $primary-dark,
+    "secondary": $secondary,
+    "success": $success,
+    "danger": $danger,
+    "info": $info,
+    "light": $light,
+    "dark": $dark,
+    "warning": $warning
+);
