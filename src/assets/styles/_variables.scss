@@ -1,22 +1,16 @@
-//--variables
+//bootstrap overrides
 
-
-$primary :#005586;
-$secondary: #999999;
-$success: #71b971;
-$danger: #da411f;
-$warning: #f5ae65;
-$info: #76bfda;
+$primary :#5991e2;
+$secondary: #3C4352;
+$success: #66c088;
+$danger: #e24917;
+$warning: #d1b503;
+$info: #B2BAC9;
 $light: #ffffff;
-$dark: #424242;
-//addional colors
-$primary-dark: #00538b;
-$primary-light: #6698b9;
+$dark: #343536;
 
 $theme-colors: (
     "primary": $primary,
-    "primary-light": $primary-light,
-    "primary-dark": $primary-dark,
     "secondary": $secondary,
     "success": $success,
     "danger": $danger,
