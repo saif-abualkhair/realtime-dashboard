@@ -2,9 +2,33 @@
 @import "./assets/styles/variables";
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
-body{
+body {
     background-color: #292929;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: white !important;
+}
+
+
+.scale {
+
+    $time: .2s;
+
+    &.scale-4ms {
+        $time: .4s;
+    }
+
+    &.scale-6ms {
+        $time: .6s;
+    }
+
+    &.scale-8ms {
+        $time: .8s;
+    }
+
+    transition: transform $time ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
