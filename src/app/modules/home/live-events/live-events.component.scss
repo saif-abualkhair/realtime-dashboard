@@ -1,7 +1,7 @@
 .main-container {
     height: 324px;
     border-radius: 12px;
-
+    overflow: hidden;
     .header {
         .status-arrow {
             width: 24px;
@@ -16,6 +16,26 @@
         .statistic {
             .pill{
                 padding: 1px 6px;
+            }
+        }
+    }
+
+    .canvas-container{
+        width: 110%;
+        left: -10px;
+        bottom: -10px;
+
+        .description-area{
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            transform: translateX(-50%) translateY(100%);
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+            opacity: 0;
+            &.show{
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
             }
         }
     }
