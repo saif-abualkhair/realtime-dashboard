@@ -1,14 +1,18 @@
-<div class="main-container">
-    <nav>
-        <rd-nav></rd-nav>
-    </nav>
-    <main>
-        <router-outlet></router-outlet>
-    </main>
-    <footer>
-        <rd-footer></rd-footer>
-    </footer>
+<div class="main-container d-flex">
+    <div class="end-area">
+        <aside>
+            <rd-sidebar></rd-sidebar>
+        </aside>
+    </div>
+    <div class="start-area">
+        <nav>
+            <rd-nav></rd-nav>
+        </nav>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+        <footer>
+            <rd-footer></rd-footer>
+        </footer>
+    </div>
 </div>
-<aside>
-    <rd-sidebar></rd-sidebar>
-</aside>
