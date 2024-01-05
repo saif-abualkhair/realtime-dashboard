@@ -1,4 +1,26 @@
-<button class="btn btn-primary" (click)="onHamburgerClick.emit()">
-    <!-- bi hamburger menu -->
+<!-- <button class="btn btn-primary" (click)="onHamburgerClick.emit()">
     <i class="bi bi-list"></i>
-</button>
+</button> -->
+<div class="main-container d-flex justify-content-end my-4">
+    <div class="search-box position-relative">
+        <input type="text" placeholder="Search...">
+        <i class="bi bi-search position-absolute start-0 top-50 translate-middle ms-3"></i>
+    </div>
+
+
+    <button class="btn btn-secondary btn-sm text-info mx-2 rounded">
+        <img class="mx-1" src="assets/images/icons/bell.svg" alt="">
+    </button>
+
+
+    <button class="btn btn-secondary btn-sm text-info mx-2 rounded">
+        <img class="mx-1" src="assets/images/icons/modules.svg" alt="">
+        <strong class="mx-1">
+            <small>Modules</small>
+        </strong>
+    </button>
+
+    <a href="#" class="mx-2 scale">
+        <img src="assets/images/user-profile-picture.png" alt="" width="40" height="40">
+    </a>
+</div>
