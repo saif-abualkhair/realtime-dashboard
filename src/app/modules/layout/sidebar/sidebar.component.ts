@@ -6,6 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  @Input() pinState: string = 'state2';
+  @Input() pinState: string = 'state1';
   @Output() onPinChange: EventEmitter<string> = new EventEmitter<string>();
 }

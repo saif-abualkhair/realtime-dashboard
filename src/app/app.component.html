@@ -1,7 +1,7 @@
 <div class="main-container d-flex">
     <div class="start-area" [ngClass]="pinState.value">
         <aside>
-            <input type="hidden" #pinState value="state2">
+            <input type="hidden" #pinState value="state1">
             <rd-sidebar [pinState]="pinState.value" (onPinChange)="pinState.value = $event"></rd-sidebar>
         </aside>
     </div>
