@@ -1,12 +1,15 @@
 <div class="main-container d-flex">
-    <div class="end-area">
+    <div class="start-area" [ngClass]="pinState.value">
         <aside>
-            <rd-sidebar></rd-sidebar>
+            <input type="hidden" #pinState value="state2">
+            <rd-sidebar [pinState]="pinState.value" (onPinChange)="pinState.value = $event"></rd-sidebar>
         </aside>
     </div>
-    <div class="start-area">
+    <div class="end-area" [ngClass]="pinState.value">
         <nav>
-            <rd-nav></rd-nav>
+            <rd-nav
+                (onHamburgerClick)="pinState.value == 'state2' ? pinState.value = 'state1' : pinState.value = 'state2'">
+            </rd-nav>
         </nav>
         <main>
             <router-outlet></router-outlet>

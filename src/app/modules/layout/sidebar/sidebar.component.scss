@@ -42,4 +42,22 @@
             }
         }
     }
+
+    .sidebar-controls {
+        .sm {
+            display: none;
+        }
+    }
+
+
+    @media screen and (max-width: 991px) {
+        .sidebar-controls {
+            .sm {
+                display: block;
+            }
+            .lg {
+                display: none;
+            }
+        }
+    }
 }

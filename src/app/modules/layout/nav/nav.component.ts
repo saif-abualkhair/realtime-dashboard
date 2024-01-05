@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'rd-nav',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-
+  @Output() onHamburgerClick: EventEmitter<void> = new EventEmitter<void>();
 }

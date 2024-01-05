@@ -2,12 +2,93 @@
     max-height: 100vh;
 
     .start-area {
-        width: calc(100% - 105px);
-        max-height: 100%;
-        overflow: auto;
+        &.state2 {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 105px;
+
+            aside {
+                transition: all .4s ease-in-out;
+                position: fixed;
+                left: 0;
+                top: 0;
+                transform: translateX(-100%);
+                width: 105px;
+            }
+        }
+
+        &:hover {
+            &.state2 {
+                aside {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        &.state1 {
+            width: 105px;
+            animation: slidein 1s ease-in-out;
+
+            @keyframes slidein {
+                from {
+                    width: 0px;
+                }
+
+                to {
+                    width: 105px;
+                }
+            }
+
+            aside {
+                animation: fadein 1s ease-in-out;
+
+                @keyframes fadein {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+
+                }
+            }
+        }
     }
 
     .end-area {
-        width: 105px;
+        max-height: 100%;
+        overflow: auto;
+        transition: all 1s ease-in-out;
+
+        &.state2 {
+            width: 100%;
+        }
+
+        &.state1 {
+            width: calc(100% - 105px);
+            padding: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .main-container {
+        .end-area {
+            width: 100% !important;
+        }
+
+        .start-area {
+            position: fixed;
+            &.state1 {
+                transform: translate(0);
+            }
+
+            &.state2 {
+                transform: translate(-100%);
+            }
+        }
     }
 }

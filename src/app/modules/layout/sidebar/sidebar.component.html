@@ -1,4 +1,4 @@
-<div class="main-container d-flex flex-column bg-dark rounded mx-2 my-5 shadow py-4">
+<div class="main-container d-flex flex-column bg-dark rounded mx-2 my-5 shadow py-4 position-relative">
     <div class="my-2 d-flex justify-content-center">
         <a href="/" class="scale scale-4ms">
             <img src="/assets/images/logo.svg" alt="" height="78" width="52">
@@ -56,5 +56,18 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="sidebar-controls d-flex justify-content-center position-absolute bottom-0 left-0 w-100 py-4">
+        <a role="button"
+            (click)="pinState == 'state2'? pinState = 'state1' : pinState ='state2';onPinChange.emit(pinState)"
+            class="btn btn-outline-light border-0 lg">
+            <i class="bi bi-pin-angle lg"></i>
+        </a>
+
+        <a role="button"
+            (click)="pinState == 'state2'? pinState = 'state1' : pinState ='state2';onPinChange.emit(pinState)"
+            class="btn btn-outline-light border-0 sm">
+            <i class="bi bi-box-arrow-left sm"></i>
+        </a>
     </div>
 </div>
