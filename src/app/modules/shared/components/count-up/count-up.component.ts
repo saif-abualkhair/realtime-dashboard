@@ -7,6 +7,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class CountUpComponent implements OnChanges {
   @Input() value?: number;
+  @Input() speed?: number = 5;
+  @Input() decrease?: boolean = true;
   displayValue?: number;
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -21,8 +23,9 @@ export class CountUpComponent implements OnChanges {
       if (this.displayValue! < this.value!) {
         this.displayValue = this.displayValue! + 1;
       } else {
+        this.displayValue = this.value;
         clearInterval(interval);
       }
-    }, 5);
+    }, this.speed);
   }
 }

@@ -1,5 +1,22 @@
 .main-container {
     height: 324px;
-    background-color: gainsboro;
     border-radius: 12px;
+
+    .header {
+        .status-arrow {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .statistics {
+        .statistic {
+            .pill{
+                padding: 1px 6px;
+            }
+        }
+    }
 }
