@@ -10,6 +10,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { LiveWorkersTrendPerZoneComponent } from './live-workers-trend-per-zone/live-workers-trend-per-zone.component';
 import { CriticalMissionComponent } from './critical-mission/critical-mission.component';
 import { LiveEventsAdvancedComponent } from './live-events-advanced/live-events-advanced.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LiveEventsAdvancedComponent } from './live-events-advanced/live-events-
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
