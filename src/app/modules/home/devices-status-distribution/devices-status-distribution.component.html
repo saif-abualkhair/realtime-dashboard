@@ -1,3 +1,59 @@
-<div class="main-container">
+<div class="main-container bg-dark shadow p-3 position-relative">
+    <div class="header d-flex justify-content-between">
+        <div class="title d-flex">
+            <h5 class="m-0 me-1">
+                Live events
+            </h5>
+            <a role="button" class="btn btn-secondary text-danger status-arrow mx-1">
+                <img src="assets/images/icons/arrow-down.svg" alt="" width="20" height="20">
+            </a>
+        </div>
 
+        <rd-info-icon [title]="'Lorem ipsum dolor sit amet consectetur adipisicing elit.'" [position]="'bottom'">
+        </rd-info-icon>
+    </div>
+    <div class="row m-0 py-2 align-items-center">
+        <div class="col-2">
+            <img src="assets/images/icons/smart-phone.svg" alt="">
+        </div>
+        <div class="col-10">
+            <div class="row m-0">
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                    <div class="dot bg-primary my-1"></div>
+                    <h5 class="m-0 my-1">
+                        <rd-count-up [decrease]="false" [speed]="10" [value]="devicesStatusDistribution?.assignedCount"></rd-count-up>
+                    </h5>
+                    <small class="my-1 text-info">
+                        <strong>
+                            Assigned
+                        </strong>
+                    </small>
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                    <div class="dot bg-success my-1"></div>
+                    <h5 class="m-0 my-1">
+                        <rd-count-up [decrease]="false" [speed]="80" [value]="devicesStatusDistribution?.idleCount"></rd-count-up>
+                    </h5>
+                    <small class="my-1 text-info">
+                        <strong>
+                            Idle
+                        </strong>
+                    </small>
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                    <div class="dot bg-warning my-1"></div>
+                    <h5 class="m-0 my-1">
+                        <rd-count-up [decrease]="false" [speed]="80" [value]="devicesStatusDistribution?.othersCount"></rd-count-up>
+
+                    </h5>
+                    <small class="my-1 text-info">
+                        <strong>
+                            Others
+                        </strong>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <rd-relative-loader [isLoading]="!devicesStatusDistribution"></rd-relative-loader>
 </div>

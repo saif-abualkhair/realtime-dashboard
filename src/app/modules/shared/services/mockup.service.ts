@@ -1,15 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject, delay, take } from 'rxjs';
 import { Activity } from '../../home/models/activity';
 import { LiveEvents } from '../../home/models/live-events';
+import { DevicesStatusDistribution } from '../../home/models/devices-status-distribution';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MockupService {
 
-  // private getRandomNumber = (firstLimit: number, lastLimit: number) => Math.floor(Math.random() * (lastLimit - firstLimit + 1) + firstLimit);
   private getRandomNumber = (firstLimit: number, lastLimit: number, hasDecimals: boolean) => {
     let random = Math.random() * (lastLimit - firstLimit + 1) + firstLimit;
     return hasDecimals ? random : Math.floor(random);
@@ -61,4 +60,9 @@ export class MockupService {
     },
   });
 
+  getDevicesStatusDistribution = () => this.stageSubject<DevicesStatusDistribution>({
+    assignedCount: this.getRandomNumber(500, 999, false),
+    idleCount: this.getRandomNumber(100, 499, false),
+    othersCount: this.getRandomNumber(40, 99, false),
+  });
 }
