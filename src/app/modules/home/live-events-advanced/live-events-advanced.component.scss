@@ -2,6 +2,23 @@
     height: 518px;
     border-radius: 12px;
 
+    .small-card{
+        height: 194px;
+    }
+
+        .status-arrow {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pill{
+            padding: 1px 6px;
+        }
+    
+
     .live-event-card {
         height: 412px;
         border-radius: 12px;
@@ -19,9 +36,9 @@
                 justify-content: center;
             }
 
-            .pill{
-                padding: 1px 6px;
-            }
+            
+
+            
 
             .chart-card {
                 border-top-right-radius: 12px;

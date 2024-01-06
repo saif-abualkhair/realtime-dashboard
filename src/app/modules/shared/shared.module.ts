@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CountUpComponent } from './components/count-up/count-up.component';
 import { RelativeLoaderComponent } from './components/relative-loader/relative-loader.component';
 import { InfoIconComponent } from './components/info-icon/info-icon.component';
+import { CandleChartComponent } from './components/candle-chart/candle-chart.component';
 
 
 
@@ -10,7 +11,8 @@ import { InfoIconComponent } from './components/info-icon/info-icon.component';
   declarations: [
     CountUpComponent,
     RelativeLoaderComponent,
-    InfoIconComponent
+    InfoIconComponent,
+    CandleChartComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { InfoIconComponent } from './components/info-icon/info-icon.component';
   exports: [
     CountUpComponent,
     RelativeLoaderComponent,
-    InfoIconComponent
+    InfoIconComponent,
+    CandleChartComponent
   ]
 })
 export class SharedModule { }

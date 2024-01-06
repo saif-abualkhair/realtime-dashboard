@@ -1,0 +1,9 @@
+<div class="main-container shadow">
+    <div class="bar p-1 text-center" *ngFor="let bar of context; let first = first; let last = last"
+        [ngStyle]="{height:bar.percentage, 'background-color' : bar.percentageColor, 'border-bottom-right-radius' : last? '4px' : '0px'
+    , 'border-bottom-left-radius' : last? '4px' : '0px','border-top-right-radius' : first? '4px' : '0px', 'border-top-left-radius' : first? '4px' : '0px'}">
+        <sub class="value">
+            {{bar.value}}
+        </sub>
+    </div>
+</div>

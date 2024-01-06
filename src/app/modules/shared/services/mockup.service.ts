@@ -6,6 +6,7 @@ import { DevicesStatusDistribution } from '../../home/models/devices-status-dist
 import { Weather } from '../../home/models/weather';
 import { CrictalMissionUpdate } from '../../home/models/crical-mission-update';
 import { LiveWorkersTrendPerZone } from '../../home/models/live-workers-trend-per-zone';
+import { LiveEventsAdvanced } from '../../home/models/live-events-advanced';
 
 @Injectable({
   providedIn: 'root'
@@ -136,5 +137,140 @@ export class MockupService {
     greenZone: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
     amberZone: [30, 40, 50, 60, 70, 80, 90, 100, 10, 20],
     redZone: [50, 60, 70, 80, 90, 100, 10, 20, 30, 40],
+  });
+
+  getLiveEventsAdvanced = () => this.stageSubject<LiveEventsAdvanced>({
+    totalAlerts: {
+      totalNumber: this.getRandomNumber(300, 399, false),
+      percentage: this.getRandomNumber(1, 100, true),
+    },
+    totalAlarms: {
+      totalNumber: this.getRandomNumber(400, 799, false),
+      percentage: this.getRandomNumber(1, 100, true),
+    },
+    previousYearTotal: {
+      totalNumber: this.getRandomNumber(800, 1200, false),
+      percentage: this.getRandomNumber(1, 100, true),
+    },
+    totalEvents: this.getRandomNumber(999, 1000, false),
+    dataSets: {
+      values: [
+        this.getRandomNumber(500, 1000, false),
+        this.getRandomNumber(500, 1000, false),
+        this.getRandomNumber(500, 1000, false),
+      ],
+      backgroundColors: ['#5991e2', '#da7739', '#bc4c34'],
+    },
+    SitesStatistics: [
+      {
+        name: 'Site 1',
+        totalEvents: this.getRandomNumber(1, 100, false),
+        isDecrease: this.getRandomNumber(1, 2, false) % 2 === 0,
+        PrevYear: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        grpAvg: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        dataSets: {
+          values: [
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#5991e2',
+            },
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#da7739',
+            },
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#bc4c34',
+            }
+          ],
+        },
+      },
+      {
+        name: 'Site 2',
+        totalEvents: this.getRandomNumber(1, 100, false),
+        isDecrease: this.getRandomNumber(1, 2, false) % 2 === 0,
+        PrevYear: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        grpAvg: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        dataSets: {
+          values: [
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#5991e2',
+            },
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#bc4c34',
+            },
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#bc4c34',
+            },
+          ],
+        },
+      },
+      {
+        name: 'Site 3',
+        totalEvents: this.getRandomNumber(1, 100, false),
+        isDecrease: this.getRandomNumber(1, 2, false) % 2 === 0,
+        PrevYear: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        grpAvg: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        dataSets: {
+          values: [
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#5991e2',
+            },
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#bc4c34',
+            },
+          ],
+        },
+      },
+      {
+        name: 'Site 4',
+        totalEvents: this.getRandomNumber(1, 100, false),
+        isDecrease: this.getRandomNumber(1, 2, false) % 2 === 0,
+        PrevYear: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        grpAvg: {
+          percentage1: this.getRandomNumber(1, 100, true),
+          percentage2: this.getRandomNumber(1, 100, true),
+        },
+        dataSets: {
+          values: [
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#5991e2',
+            },
+            {
+              value: this.getRandomNumber(500, 1000, false),
+              color: '#bc4c34',
+            },
+          ],
+        },
+      },
+    ]
+
   });
 }

@@ -4,7 +4,7 @@
     </span>
 
     <div class="row g-2 m-0 mt-4">
-        <div class="col-md-6">
+        <div class="col-md-6 mt-0">
             <div class="live-event-card start shadow">
                 <div class="row m-0 h-100">
                     <div class="col-3 p-3">
@@ -22,48 +22,51 @@
                                 <small class="text-info">Total Alerts</small>
                                 <div class="d-flex">
                                     <h5 class="d-inline m-0 mx-3">
-                                        487
+                                        {{liveEventsAdvanced?.totalAlarms?.totalNumber}}
                                     </h5>
 
                                     <span class="bg-secondary text-success mx-3 rounded pill">
                                         <small>
                                             <i class="bi bi-arrow-up"></i>
                                         </small>
-                    
-                                        <rd-count-up [decrease]="false" [speed]="80" [value]="15.2"></rd-count-up>%
+
+                                        <rd-count-up [decrease]="false" [speed]="80"
+                                            [value]="liveEventsAdvanced?.totalAlarms?.percentage"></rd-count-up>%
                                     </span>
                                 </div>
                             </div>
                             <div class="col-12 d-flex flex-column my-3">
                                 <img src="assets/images/icons/exclamation-danger.svg" width="40" height="40" alt="">
-                                <small class="text-info">Total Alerts</small>
+                                <small class="text-info">Total Alarms</small>
                                 <div class="d-flex">
                                     <h5 class="d-inline m-0 mx-3">
-                                        487
+                                        {{liveEventsAdvanced?.totalAlerts?.totalNumber}}
                                     </h5>
 
                                     <span class="bg-secondary text-success mx-3 rounded pill">
                                         <small>
                                             <i class="bi bi-arrow-up"></i>
                                         </small>
-                    
-                                        <rd-count-up [decrease]="false" [speed]="80" [value]="15.2"></rd-count-up>%
+
+                                        <rd-count-up [decrease]="false" [speed]="80"
+                                            [value]="liveEventsAdvanced?.totalAlerts?.percentage"></rd-count-up>%
                                     </span>
                                 </div>
                             </div>
                             <div class="col-12 d-flex flex-column my-3">
-                                <small class="text-info">Total Alerts</small>
+                                <small class="text-info">Previous Year Total</small>
                                 <div class="d-flex">
                                     <h5 class="d-inline m-0 mx-3">
-                                        487
+                                        {{liveEventsAdvanced?.previousYearTotal?.totalNumber}}
                                     </h5>
 
                                     <span class="bg-secondary text-success mx-3 rounded pill">
                                         <small>
                                             <i class="bi bi-arrow-up"></i>
                                         </small>
-                    
-                                        <rd-count-up [decrease]="false" [speed]="80" [value]="15.2"></rd-count-up>%
+
+                                        <rd-count-up [decrease]="false" [speed]="80"
+                                            [value]="liveEventsAdvanced?.previousYearTotal?.percentage"></rd-count-up>%
                                     </span>
                                 </div>
                             </div>
@@ -71,17 +74,88 @@
                     </div>
                     <div class="col-9 bg-dark chart-card p-3 position-relative">
                         <canvas id="liveEventsAdvancedChart" height="64" class="canvas">{{chart}}</canvas>
-                        <span class="position-absolute start-50 top-50 translate-middle chart-total">
-                            <rd-count-up [decrease]="true" [speed]="10" [value]="1200"></rd-count-up>
+                        <span class="position-absolute start-50 top-50 translate-middle text-center">
+                            <span class="text-info">
+                                Total Events
+                            </span>
+                            <div class="chart-total">
+                                <rd-count-up [decrease]="true" [speed]="10"
+                                    [value]="liveEventsAdvanced?.totalEvents"></rd-count-up>
+                            </div>
                         </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mt-0">
             <div class="content">
-                Hello
+                <div class="row m-0 g-3">
+                    <div *ngFor="let site of liveEventsAdvanced?.SitesStatistics" class="col-6 mt-0">
+                        <div class="small-card shadow p-3">
+                            <div class="title row m-0">
+                                <div class="col-4">
+                                    <h5 class="m-0 me-1">
+                                        {{site?.name}}
+                                    </h5>
+                                </div>
+                                <div class="col-4 d-flex justify-content-center">
+                                    <a role="button" class="btn btn-secondary text-danger status-arrow mx-1">
+                                        <img src="assets/images/icons/arrow-down.svg" alt="" width="20" height="20">
+                                    </a>
+                                </div>
+                                <div class="col-4 d-flex justify-content-end">
+                                    <rd-info-icon [title]="'Lorem ipsum dolor sit amet consectetur adipisicing elit.'"
+                                        [position]="'bottom'">
+                                    </rd-info-icon>
+                                </div>
+                            </div>
+
+                            <div class="row m-0 my-3">
+                                <div class="col-6 d-flex flex-column">
+                                    <span class="text-info">
+                                        Total Events
+                                    </span>
+                                    <div class="my-1">
+                                        <rd-count-up class="d-inline" [decrease]="false" [speed]="80"
+                                            [value]="site.totalEvents"></rd-count-up>%
+                                    </div>
+                                    <div class="my-1">
+                                        Prev. Yr. <rd-count-up class="d-inline" [decrease]="false" [speed]="80"
+                                            [value]="site.PrevYear.percentage1"></rd-count-up>%%
+
+                                        <span class="bg-secondary text-info mx-3 rounded pill">
+                                            <small>
+                                                <i class="bi bi-arrow-up"></i>
+                                            </small>
+
+                                            <rd-count-up [decrease]="false" [speed]="80"
+                                                [value]="site.PrevYear.percentage2"></rd-count-up>%
+                                        </span>
+                                    </div>
+                                    <div class="my-1">
+                                        Grp. Avg <rd-count-up class="d-inline" [decrease]="false" [speed]="80"
+                                            [value]="site.grpAvg.percentage1"></rd-count-up>%
+
+                                        <span class="bg-secondary text-info mx-3 rounded pill">
+                                            <small>
+                                                <i class="bi bi-arrow-up"></i>
+                                            </small>
+
+                                            <rd-count-up [decrease]="false" [speed]="80"
+                                                [value]="site.grpAvg.percentage2"></rd-count-up>%
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex justify-content-center">
+                                    <rd-candle-chart [value]="[{value:30, color:'bc4c34'}, {value:48, color:'da7739'}]">
+                                    </rd-candle-chart>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <rd-relative-loader [isLoading]="!liveEventsAdvanced"></rd-relative-loader>
 </div>

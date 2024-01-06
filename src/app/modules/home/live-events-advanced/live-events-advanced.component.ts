@@ -1,5 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { MockupService } from '../../shared/services/mockup.service';
+import { LiveEventsAdvanced } from '../models/live-events-advanced';
 
 @Component({
   selector: 'rd-live-events-advanced',
@@ -8,17 +10,27 @@ import { Chart } from 'chart.js';
 })
 export class LiveEventsAdvancedComponent {
   chart!: Chart;
+  liveEventsAdvanced?: LiveEventsAdvanced;
+
+  constructor(private mockupService: MockupService) { }
 
   ngOnInit() {
+    this.mockupService.getLiveEventsAdvanced().subscribe(response => {
+      this.liveEventsAdvanced = response;
+      console.log(this.liveEventsAdvanced.SitesStatistics[0].grpAvg)
+      this.mountChart(this.liveEventsAdvanced!);
+    });
+  }
+
+  mountChart(liveEventsAdvanced: LiveEventsAdvanced) {
     const ctx = (document.getElementById('liveEventsAdvancedChart') as HTMLCanvasElement)?.getContext('2d');
 
     new Chart(ctx!, {
       type: 'doughnut',
       data: {
-        labels: ['Primary', 'Amber', 'Red'],
         datasets: [{
-          data: [841, 270, 200],
-          backgroundColor: ['#5991e2', '#da7739', '#bc4c34'],
+          data: liveEventsAdvanced.dataSets.values,
+          backgroundColor: liveEventsAdvanced.dataSets.backgroundColors,
           borderWidth: 0
         }]
       },
@@ -47,5 +59,5 @@ export class LiveEventsAdvancedComponent {
         }
       },
     });
-  }
+  };
 }
