@@ -19,7 +19,6 @@ export class ActivityComponent implements OnInit {
   getActivity = () => {
     this.mockupService.getActivity().subscribe(activity => {
       this.activity = activity;
-      console.log(this.activity)
     });
   }
 

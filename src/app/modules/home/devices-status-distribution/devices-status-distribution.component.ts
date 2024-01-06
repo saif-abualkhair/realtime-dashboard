@@ -18,7 +18,6 @@ export class DevicesStatusDistributionComponent implements OnInit {
 
   getDevicesStatusDistribution() {
     this.mockupService.getDevicesStatusDistribution().subscribe(response => {
-      console.log(JSON.stringify(response));
       this.devicesStatusDistribution = response;
     });
   }

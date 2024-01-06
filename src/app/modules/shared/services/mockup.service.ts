@@ -3,11 +3,13 @@ import { BehaviorSubject, Subject, delay, take } from 'rxjs';
 import { Activity } from '../../home/models/activity';
 import { LiveEvents } from '../../home/models/live-events';
 import { DevicesStatusDistribution } from '../../home/models/devices-status-distribution';
+import { Weather } from '../../home/models/weather';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MockupService {
+
 
   private getRandomNumber = (firstLimit: number, lastLimit: number, hasDecimals: boolean) => {
     let random = Math.random() * (lastLimit - firstLimit + 1) + firstLimit;
@@ -65,4 +67,41 @@ export class MockupService {
     idleCount: this.getRandomNumber(100, 499, false),
     othersCount: this.getRandomNumber(40, 99, false),
   });
+
+  getWeather = () => this.stageSubject<Weather>({
+    geoAddress: 'Jordan, Amman',
+    currentTemperature: this.getRandomNumber(2, 25, false),
+    nextHoursTemperature: [
+      {
+        time: this.getRandomNumber(1, 12, false),
+        temperature: this.getRandomNumber(2, 25, false),
+      },
+      {
+        time: this.getRandomNumber(1, 12, false),
+        temperature: this.getRandomNumber(2, 25, false),
+      },
+      {
+        time: this.getRandomNumber(1, 12, false),
+        temperature: this.getRandomNumber(2, 25, false),
+      },
+      {
+        time: this.getRandomNumber(1, 12, false),
+        temperature: this.getRandomNumber(2, 25, false),
+      },
+      {
+        time: this.getRandomNumber(1, 12, false),
+        temperature: this.getRandomNumber(2, 25, false),
+      },
+      {
+        time: this.getRandomNumber(1, 12, false),
+        temperature: this.getRandomNumber(2, 25, false),
+      },
+      {
+        time: this.getRandomNumber(1, 12, false),
+        temperature: this.getRandomNumber(2, 25, false),
+      },
+    ]
+  });
+
+
 }
