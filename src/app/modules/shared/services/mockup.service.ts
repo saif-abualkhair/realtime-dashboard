@@ -4,12 +4,12 @@ import { Activity } from '../../home/models/activity';
 import { LiveEvents } from '../../home/models/live-events';
 import { DevicesStatusDistribution } from '../../home/models/devices-status-distribution';
 import { Weather } from '../../home/models/weather';
+import { CrictalMissionUpdate } from '../../home/models/crical-mission-update';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MockupService {
-
 
   private getRandomNumber = (firstLimit: number, lastLimit: number, hasDecimals: boolean) => {
     let random = Math.random() * (lastLimit - firstLimit + 1) + firstLimit;
@@ -103,5 +103,30 @@ export class MockupService {
     ]
   });
 
-
+  getCriticalMissionsUpdates = () => this.stageSubject<CrictalMissionUpdate[]>([
+    {
+      imageUrl: 'assets/images/critical-mission-user-update-profile-picture-1.png',
+      name: 'Mohammad Yousef Ali',
+      role: 'HSE Manager',
+      lastUpdateTimeStamp: '01:44'
+    },
+    {
+      imageUrl: 'assets/images/critical-mission-user-update-profile-picture-2.png',
+      name: 'Saleem Mohammad Sami',
+      role: 'Safety Supervision',
+      lastUpdateTimeStamp: '01:20'
+    },
+    {
+      imageUrl: 'assets/images/critical-mission-user-update-profile-picture-3.png',
+      name: 'Sami Hamad Ali',
+      role: 'Operator',
+      lastUpdateTimeStamp: '00.45'
+    },
+    {
+      imageUrl: 'assets/images/critical-mission-user-update-profile-picture-4.png',
+      name: 'Osama Omar Ibrahem',
+      role: 'Maintenance Engineer',
+      lastUpdateTimeStamp: '00:35'
+    },
+  ]);
 }
