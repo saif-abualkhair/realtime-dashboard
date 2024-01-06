@@ -1,6 +1,4 @@
 <div class="main-container bg-dark shadow p-3 position-relative">
-
-
     <div class="header d-flex justify-content-between">
         <div class="title d-flex">
             <h5 class="m-0 me-1">
@@ -26,7 +24,7 @@
             <div class="statistic d-flex justify-content-center align-items-center">
                 <h5 class="d-inline m-0 mx-1">
                     <rd-count-up [decrease]="false" [speed]="80" [decrease]="false" [speed]="80"
-                        [value]="13"></rd-count-up>
+                        [value]="liveEvents?.info?.total"></rd-count-up>
                 </h5>
                 <span class="bg-secondary text-success mx-1 rounded pill">
                     <strong>
@@ -35,7 +33,7 @@
                         </small>
                     </strong>
 
-                    <rd-count-up [decrease]="false" [speed]="80" [value]="13.5"></rd-count-up>
+                    <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.info?.percentageChange"></rd-count-up>
                 </span>
             </div>
             <span class="text-info justify-self-start align-self-start ms-3">
@@ -48,7 +46,7 @@
             <img class="my-2" src="assets/images/icons/radiation-warning.svg" width="67" height="67" alt="">
             <div class="statistic d-flex justify-content-center align-items-center">
                 <h5 class="d-inline m-0 mx-1">
-                    <rd-count-up [decrease]="false" [speed]="80" [value]="13"></rd-count-up>
+                    <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.alerts?.total"></rd-count-up>
                 </h5>
                 <span class="bg-secondary text-success mx-1 rounded pill">
                     <strong>
@@ -57,7 +55,7 @@
                         </small>
                     </strong>
 
-                    <rd-count-up [decrease]="false" [speed]="80" [value]="13.5"></rd-count-up>
+                    <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.alerts?.percentageChange"></rd-count-up>
                 </span>
             </div>
             <span class="text-info justify-self-start align-self-start ms-3">
@@ -70,14 +68,14 @@
             <img class="my-2" src="assets/images/icons/radiation-danger.svg" width="67" height="67" alt="">
             <div class="statistic d-flex justify-content-center align-items-center">
                 <h5 class="d-inline m-0 mx-1">
-                    <rd-count-up [decrease]="false" [speed]="80" [value]="13"></rd-count-up>
+                    <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.alarms?.total"></rd-count-up>
                 </h5>
                 <span class="bg-secondary text-success mx-1 rounded pill">
                     <small>
                         <i class="bi bi-arrow-up"></i>
                     </small>
 
-                    <rd-count-up [decrease]="false" [speed]="80" [value]="13.5"></rd-count-up>
+                    <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.alarms?.percentageChange"></rd-count-up>
                 </span>
             </div>
             <span class="text-info justify-self-start align-self-start ms-3">
@@ -90,7 +88,6 @@
 
     <div class="canvas-container position-absolute">
         <canvas id="canvas" height="64" class="canvas">{{chart}}</canvas>
-        <!-- <span class="position-absolute start-50 bottom-0 translate-middle"> -->
         <span class="description-area" [ngClass]="hoverPointValue ? 'show' : ''">
             <span class="d-block">
                 SOS Raised
@@ -100,4 +97,6 @@
             </span>
         </span>
     </div>
+
+    <rd-relative-loader [isLoading]="!liveEvents"></rd-relative-loader>
 </div>

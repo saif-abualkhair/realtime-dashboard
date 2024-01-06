@@ -1,42 +1,30 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import Chart, { BubbleDataPoint, ChartConfiguration, ChartConfigurationCustomTypesPerDataset, ChartTypeRegistry, Point, TooltipItem, TooltipModel } from 'chart.js/auto';
+import { MockupService } from '../../shared/services/mockup.service';
+import { LiveEvents } from '../models/live-events';
 
 @Component({
   selector: 'rd-live-events',
   templateUrl: './live-events.component.html',
   styleUrls: ['./live-events.component.scss']
 })
-export class LiveEventsComponent implements OnInit, AfterViewInit {
-  ngAfterViewInit(): void {
-    
-  }
-  chart: any = []
+export class LiveEventsComponent implements OnInit {
+
+  liveEvents?: LiveEvents;
+  chart!: Chart;
   hoverPointValue?: string;
 
-  timestamps: string[] = [
-    '12:45:25 am',
-    '05:04:12 am',
-    '12:01:02 pm',
-    '05:04:12 pm',
-    '09:43:10 pm',
-    '10:04:12 pm',
-    '02:02:10 am',
-  ];
+  constructor(private mockupService: MockupService) { }
 
-
-  onItemHover = (e: any, item: any) => {
-    if (item.length > 0)
-      this.hoverPointValue = this.timestamps[item[0].index];
-    else
-      this.hoverPointValue = undefined;
-  };
 
   ngOnInit() {
-    var ctx = (document.getElementById('canvas') as HTMLCanvasElement)?.getContext('2d');
+    this.getLiveEvents();
 
-    let data = [
-      12, 20, 15, 14, 18, 10, 5
-    ];
+  }
+
+  mountChart(frequencies: number[], times: string[]) {
+    const ctx = (document.getElementById('canvas') as HTMLCanvasElement)?.getContext('2d');
+
     const config: ChartConfiguration = {
       type: 'line',
       options: {
@@ -74,11 +62,10 @@ export class LiveEventsComponent implements OnInit, AfterViewInit {
           }
         },
       },
-
       data: {
-        labels: this.timestamps,
+        labels: times,
         datasets: [{
-          data: data,
+          data: frequencies,
           fill: true,
           borderColor: '#e24917',
           tension: 0.1,
@@ -88,10 +75,23 @@ export class LiveEventsComponent implements OnInit, AfterViewInit {
           pointHoverRadius: 8,
           pointHoverBackgroundColor: 'rgba(242, 102, 102, 0.7)'
         }],
-
       },
     };
     this.chart = new Chart(ctx!, config);
+  };
+
+  onItemHover = (e: any, item: any) => {
+    if (item.length > 0)
+      this.hoverPointValue = this.liveEvents?.sosRaiseChart.times[item[0].index];
+    else
+      this.hoverPointValue = undefined;
+  };
+
+  getLiveEvents = () => {
+    this.mockupService.getLiveEvents().subscribe(response => {
+      this.liveEvents = response;
+      this.mountChart(this.liveEvents.sosRaiseChart.frequencies, this.liveEvents.sosRaiseChart.times);
+    })
   }
 
   createGradient = (ctx: CanvasRenderingContext2D) => {
