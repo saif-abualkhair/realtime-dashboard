@@ -1,5 +1,14 @@
 .main-container {
     height: 421px;
-    background-color: gainsboro;
     border-radius: 12px;
+    overflow: hidden;
+    .header {
+        .status-arrow {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

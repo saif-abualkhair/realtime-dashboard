@@ -5,6 +5,7 @@ import { LiveEvents } from '../../home/models/live-events';
 import { DevicesStatusDistribution } from '../../home/models/devices-status-distribution';
 import { Weather } from '../../home/models/weather';
 import { CrictalMissionUpdate } from '../../home/models/crical-mission-update';
+import { LiveWorkersTrendPerZone } from '../../home/models/live-workers-trend-per-zone';
 
 @Injectable({
   providedIn: 'root'
@@ -129,4 +130,11 @@ export class MockupService {
       lastUpdateTimeStamp: '00:35'
     },
   ]);
+
+  getLiveWorkersTrendPerZone = () => this.stageSubject<LiveWorkersTrendPerZone>({
+    timestamps: ["6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"],
+    greenZone: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+    amberZone: [30, 40, 50, 60, 70, 80, 90, 100, 10, 20],
+    redZone: [50, 60, 70, 80, 90, 100, 10, 20, 30, 40],
+  });
 }
