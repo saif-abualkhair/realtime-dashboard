@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import Chart, { BubbleDataPoint, ChartConfiguration, ChartConfigurationCustomTypesPerDataset, ChartTypeRegistry, Point, TooltipItem, TooltipModel } from 'chart.js/auto';
 
 @Component({
@@ -6,7 +6,10 @@ import Chart, { BubbleDataPoint, ChartConfiguration, ChartConfigurationCustomTyp
   templateUrl: './live-events.component.html',
   styleUrls: ['./live-events.component.scss']
 })
-export class LiveEventsComponent implements OnInit {
+export class LiveEventsComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+    
+  }
   chart: any = []
   hoverPointValue?: string;
 

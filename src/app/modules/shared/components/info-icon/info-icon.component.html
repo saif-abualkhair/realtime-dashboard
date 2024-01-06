@@ -1,0 +1,11 @@
+<!-- <a class="text-info status-arrow mx-1" data-toggle="tooltip" [attr.data-placement]="'left'" title="Tooltip on top">
+    <h4 class="m-0 d-inline">
+        <i class="bi bi-exclamation-circle"></i>
+    </h4>
+</a> -->
+<a class="text-info status-arrow mx-1" [attr.data-bs-toggle]="title ? 'tooltip' : ''" [attr.data-bs-placement]="'left'"
+    [title]="title">
+    <h4 class="m-0 d-inline">
+        <i class="bi bi-exclamation-circle"></i>
+    </h4>
+</a>
