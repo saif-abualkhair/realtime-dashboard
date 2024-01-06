@@ -1,5 +1,39 @@
-.main-container{
+.main-container {
     height: 518px;
-    background-color: gainsboro;
     border-radius: 12px;
+
+    .live-event-card {
+        height: 412px;
+        border-radius: 12px;
+
+        &.start {
+            background-color: #323232;
+            height: 412px;
+            border-radius: 12px;
+
+            .status-arrow {
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .pill{
+                padding: 1px 6px;
+            }
+
+            .chart-card {
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+                height: 100%;       
+                
+                .chart-total{
+                    font-size: 70px;
+                    font-weight: 600;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
 }

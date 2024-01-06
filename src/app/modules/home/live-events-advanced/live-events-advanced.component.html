@@ -1,3 +1,87 @@
-<div class="main-container">
+<div class="main-container bg-dark shadow p-3 position-relative">
+    <span class="text-info position-absolute end-0 top-0 me-3 mt-3">
+        Last updated time 2:23 pm, Sunday
+    </span>
 
+    <div class="row g-2 m-0 mt-4">
+        <div class="col-md-6">
+            <div class="live-event-card start shadow">
+                <div class="row m-0 h-100">
+                    <div class="col-3 p-3">
+                        <div class="d-flex mb-4">
+                            <h5 class="m-0 me-1">
+                                Live events
+                            </h5>
+                            <a role="button" class="btn btn-secondary text-danger status-arrow mx-1">
+                                <img src="assets/images/icons/arrow-up.svg" alt="" width="20" height="20">
+                            </a>
+                        </div>
+                        <div class="row m-0 h-100">
+                            <div class="col-12 d-flex flex-column my-3">
+                                <img src="assets/images/icons/exclamation-warning.svg" width="40" height="40" alt="">
+                                <small class="text-info">Total Alerts</small>
+                                <div class="d-flex">
+                                    <h5 class="d-inline m-0 mx-3">
+                                        487
+                                    </h5>
+
+                                    <span class="bg-secondary text-success mx-3 rounded pill">
+                                        <small>
+                                            <i class="bi bi-arrow-up"></i>
+                                        </small>
+                    
+                                        <rd-count-up [decrease]="false" [speed]="80" [value]="15.2"></rd-count-up>%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex flex-column my-3">
+                                <img src="assets/images/icons/exclamation-danger.svg" width="40" height="40" alt="">
+                                <small class="text-info">Total Alerts</small>
+                                <div class="d-flex">
+                                    <h5 class="d-inline m-0 mx-3">
+                                        487
+                                    </h5>
+
+                                    <span class="bg-secondary text-success mx-3 rounded pill">
+                                        <small>
+                                            <i class="bi bi-arrow-up"></i>
+                                        </small>
+                    
+                                        <rd-count-up [decrease]="false" [speed]="80" [value]="15.2"></rd-count-up>%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex flex-column my-3">
+                                <small class="text-info">Total Alerts</small>
+                                <div class="d-flex">
+                                    <h5 class="d-inline m-0 mx-3">
+                                        487
+                                    </h5>
+
+                                    <span class="bg-secondary text-success mx-3 rounded pill">
+                                        <small>
+                                            <i class="bi bi-arrow-up"></i>
+                                        </small>
+                    
+                                        <rd-count-up [decrease]="false" [speed]="80" [value]="15.2"></rd-count-up>%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-9 bg-dark chart-card p-3 position-relative">
+                        <canvas id="liveEventsAdvancedChart" height="64" class="canvas">{{chart}}</canvas>
+                        <span class="position-absolute start-50 top-50 translate-middle chart-total">
+                            <rd-count-up [decrease]="true" [speed]="10" [value]="1200"></rd-count-up>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="content">
+                Hello
+            </div>
+        </div>
+    </div>
 </div>
