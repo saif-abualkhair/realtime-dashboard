@@ -19,7 +19,7 @@
     </strong>
 
     <div class="row m-0 my-2 statistics">
-        <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-4 p-0 d-flex flex-column justify-content-center align-items-center">
             <img class="my-2" src="assets/images/icons/radiation-primary.svg" width="67" height="67" alt="">
             <div class="statistic d-flex justify-content-center align-items-center">
                 <h5 class="d-inline m-0 mx-1">
@@ -36,13 +36,13 @@
                     <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.info?.percentageChange"></rd-count-up>
                 </span>
             </div>
-            <span class="text-info justify-self-start align-self-start ms-3">
+            <span class="text-info">
                 <strong>
                     Total Info
                 </strong>
             </span>
         </div>
-        <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-4 p-0 d-flex flex-column justify-content-center align-items-center">
             <img class="my-2" src="assets/images/icons/radiation-warning.svg" width="67" height="67" alt="">
             <div class="statistic d-flex justify-content-center align-items-center">
                 <h5 class="d-inline m-0 mx-1">
@@ -58,19 +58,19 @@
                     <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.alerts?.percentageChange"></rd-count-up>
                 </span>
             </div>
-            <span class="text-info justify-self-start align-self-start ms-3">
+            <span class="text-info justify-self-center align-self-start">
                 <strong>
                     Total Alerts
                 </strong>
             </span>
         </div>
-        <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-4 p-0 d-flex flex-column justify-content-center align-items-center">
             <img class="my-2" src="assets/images/icons/radiation-danger.svg" width="67" height="67" alt="">
             <div class="statistic d-flex justify-content-center align-items-center">
                 <h5 class="d-inline m-0 mx-1">
                     <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.alarms?.total"></rd-count-up>
                 </h5>
-                <span class="bg-secondary text-success mx-1 rounded pill">
+                <span class="bg-secondary text-success rounded pill">
                     <small>
                         <i class="bi bi-arrow-up"></i>
                     </small>
@@ -78,7 +78,7 @@
                     <rd-count-up [decrease]="false" [speed]="80" [value]="liveEvents?.alarms?.percentageChange"></rd-count-up>
                 </span>
             </div>
-            <span class="text-info justify-self-start align-self-start ms-3">
+            <span class="text-info justify-self-center align-self-start">
                 <strong>
                     Total Alarms
                 </strong>
@@ -87,7 +87,7 @@
     </div>
 
     <div class="canvas-container position-absolute">
-        <canvas id="canvas" height="64" class="canvas">{{chart}}</canvas>
+        <canvas id="canvas" height="100" class="canvas">{{chart}}</canvas>
         <span class="description-area" [ngClass]="hoverPointValue ? 'show' : ''">
             <span class="d-block">
                 SOS Raised

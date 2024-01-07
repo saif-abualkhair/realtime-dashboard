@@ -1,21 +1,25 @@
 <div class="main-container bg-dark shadow p-3 position-relative">
-    <div class="header d-flex justify-content-between">
-        <div class="title d-flex">
-            <h5 class="m-0 me-1">
-                Live Workers Trend per Zone
-            </h5>
-            <a role="button" class="btn btn-secondary text-danger status-arrow mx-1">
-                <img src="assets/images/icons/arrow-down.svg" alt="" width="20" height="20">
-            </a>
-        </div>
+    <div class="header ">
+        <div class="d-flex justify-content-between">
+            <div class="title d-flex">
+                <h5 class="m-0 me-1">
+                    Live Workers Trend per Zone
+                </h5>
+                <a role="button" class="btn btn-secondary text-danger status-arrow mx-1">
+                    <img src="assets/images/icons/arrow-down.svg" alt="" width="20" height="20">
+                </a>
+            </div>
 
-        <rd-info-icon [title]="'Lorem ipsum dolor sit amet consectetur adipisicing elit.'"
-            [position]="'bottom'"></rd-info-icon>
+            <rd-info-icon [title]="'Lorem ipsum dolor sit amet consectetur adipisicing elit.'"
+                [position]="'bottom'"></rd-info-icon>
+        </div>
+        <span class="text-info">
+            People Activity Trend for the last 12 hours
+        </span>
     </div>
 
-    <span class="text-info">
-        People Activity Trend for the last 12 hours
-    </span>
-    <canvas id="liveWorkersTrendPerZoneChart" height="64" class="canvas">{{chart}}</canvas>
+    <div class="body d-flex align-items-end justify-content-center">
+            <canvas id="liveWorkersTrendPerZoneChart" class="canvas">{{chart}}</canvas>
+    </div>
     <rd-relative-loader [isLoading]="!liveWorkersTrendPerZone"></rd-relative-loader>
 </div>
