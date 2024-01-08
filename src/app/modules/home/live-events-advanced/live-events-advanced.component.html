@@ -4,7 +4,7 @@
     </span>
 
     <div class="row g-2 m-0 mt-4">
-        <div class="col-md-6 mt-0">
+        <div class="col-lg-6 mt-0">
             <div class="live-event-card start shadow">
                 <div class="row m-0 h-100">
                     <div class="col-4 p-3">
@@ -16,7 +16,7 @@
                                 <img src="assets/images/icons/arrow-up.svg" alt="" width="20" height="20">
                             </a>
                         </div>
-                        <div class="row m-0 h-100">
+                        <div class="row m-0">
                             <div class="col-12 d-flex flex-column my-3">
                                 <img src="assets/images/icons/exclamation-warning.svg" width="40" height="40" alt="">
                                 <small class="text-info">Total Alerts</small>
@@ -87,10 +87,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mt-0">
+        <div class="col-lg-6 mt-0">
             <div class="content">
                 <div class="row m-0 g-4">
-                    <div *ngFor="let site of liveEventsAdvanced?.SitesStatistics;let i = index" class="col-6" [ngClass]="i == 0 || i == 1 ? 'm-md-0 ':''">
+                    <div *ngFor="let site of liveEventsAdvanced?.SitesStatistics;let i = index" class="col-lg-6" [ngClass]="i == 0 || i == 1 ? 'm-md-0 ':''">
                         <div class="small-card shadow rounded p-3">
                             <div class="title row m-0">
                                 <div class="col-4">
